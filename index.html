@@ -318,7 +318,7 @@ footer.ft2{background:var(--s);color:var(--text);text-align:left;padding:44px 0 
 <div class="bar" id="bar"><a class="btn dl" href="#">⬇ অ্যাপ ডাউনলোড করুন</a></div>
 <div id="toast" role="status"></div>
 <script>
-var APK_URL="https://drive.usercontent.google.com/download?id=1EMZRBCYE_Xszh9VuvJ8W4vpkfm_LP5oB&export=download&confirm=t";
+var APK_URL="https://github.com/shareyaemon/hilfulfuzul/releases/latest/download/swarnatila-app.apk";
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 var bn=function(n){return String(n).replace(/\d/g,function(d){return"০১২৩৪৫৬৭৮৯"[d]})};
 var RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -365,4 +365,6 @@ cvb.addEventListener("focus",function(){pl(true)});cvb.addEventListener("blur",f
 cvb.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")pl(!hw.classList.contains("play"))});
 (function(){var h=document.querySelector("header");function f(){h.classList.toggle("top",scrollY<8)}f();addEventListener("scroll",f,{passive:true})})();
 var CONTACT_URL="";$$(".ct").forEach(function(a){a.addEventListener("click",function(e){if(CONTACT_URL){a.href=CONTACT_URL;a.target="_blank";a.rel="noopener"}else{e.preventDefault();var f=$("#faq");if(f)f.scrollIntoView({behavior:"smooth"})}})});
+/* auto: latest GitHub release -> link, version, size */
+fetch("https://api.github.com/repos/shareyaemon/hilfulfuzul/releases/latest").then(function(r){return r.ok?r.json():null}).then(function(j){if(!j||!j.assets)return;var a=j.assets.filter(function(x){return/\.apk$/i.test(x.name)})[0];if(!a)return;APK_URL=a.browser_download_url;$$(".dl").forEach(function(n){n.href=APK_URL});var mb=a.size/1048576,sb=$('[data-s=" MB"]');if(sb)sb.dataset.to=Math.round(mb);var h=$(".hint");if(h)h.textContent="Android · ভার্সন "+bn(String(j.tag_name).replace(/^v/i,""))+" · সাইজ "+bn(mb.toFixed(1))+" MB · সম্পূর্ণ ফ্রি"}).catch(function(){});
 </script></body></html>
